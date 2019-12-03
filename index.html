@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="decription" content="Biblioteca" />
+    <meta name="author" content="rafa" />
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="styles.css">
+    <!--etiquetas de bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
+</head>
+
+<body>
+    <!--PARA MI CABECERA UNA BARRA DE NAVEGACION-->
+    <nav class="navbar navbar-exepand-lg navbar-dark bg-dark ">
+        <a href="#" class="navbar-brand">Administracion de biblioteca</a>
+        <!--se colocará a la derecha de la barra de navegación-->
+        <ul class="navbar-nav ml-auto">
+            <!--le dara un margen arriba y abajo de 2 y de cero en total de pantalla-->
+            <form class="form-inline my-2 my-lg-0 ">
+                <!--estilo y espaciado-->
+                <input type="serch" id="buscar" class="form-control mr-sm-2" placeholder="buscar libro">
+                <!--le da un color y una ubicación especial tipo submit ya que desplegará un evento-->
+                <!--  <button class="btn btn-success my-2 my-sm-0" type="submit">Actualizar</button>-->
+            </form>
+        </ul>
+    </nav>
+    <!--PARA MIS FORMULARIOS-->
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+
+                        <form id="forma" method="POST">
+                            <label>codigo_libro</label>
+                            <p></p>
+                            <input type="number" name="codigo_libro" id="codigo_libro" pattern="[0-9]{9}">
+                            <p></p>
+                            <label>nombre del libro</label>
+                            <p></p>
+                            <input type="text" name="nombre_libro" id="nombre_libro">
+                            <p></p>
+                            <label>autor del libro</label>
+                            <p></p>
+                            <input type="text" name="autor_libro" id="autor_libro">
+                            <p></p>
+                            <label>tipo de libro</label>
+                            <p></p>
+                            <input type="text" name="tipo_de_libro" id="tipo_de_libro">
+                            <p></p>
+                            <label>estado del libro</label>
+                            <p></p>
+                            <input type="text" name="estado_del_libro" id="estado_del_libro">
+                            <p></p>
+                            <button id="btn-guardar" class="btn btn-primary btn-block text-center">guardar</button>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card my-4" id="libros-resul">
+                    <div class="card-body">
+                        <ul id="container"></ul>
+                    </div>
+                </div>
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr style="color: white;">
+                            <td>Código</td>
+                            <td>Nombre</td>
+                            <td>Autor</td>
+                            <td>Tipo</td>
+                            <td>Estado</td>
+                        </tr>
+                    </thead>
+                    <tbody id="libro" style="font-size: medium; color: white;"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="img">
+        <img src="imagenes/book.jpg" width="50%" height="400" alt="" style="opacity: 0.5;">
+        <div class="info">
+            <h1 style="color: white;">¡Hola!</h1>
+            <p id="txt">
+                Con el avance de la tecnología la vida del ser humano se ha vuelto más fácil, pues gracias a esos avances ahora es posible mantenerse comunicados con casi todo el mundo a largas distancias en cuestión de segundos. El mundo es tan dependiente de la tecnología
+                que sería complicado vivir sin móviles, computadoras, redes sociales, consolas de video juegos, tablets todo eso que utilizamos ahora para entretenernos, trabajar, y mantenernos en constante comunicación.
+
+
+            </p>
+            <p style="text-align: center;" class="letra">Siempre van haber errores y fallas en todo lo que hagas</p>
+            <p style="text-align: center;">Lo mas importante es como o tomas.</p>
+
+            <blockquote style="text-align: center;" class="citacion"> "Elon Musk" </blockquote>
+        </div>
+    </div>
+
+    <img class="fixed-bottom " src="imagenes/copia.jpg" width=150 alt="" style=" border-radius: 50%;">
+    <style>
+        .img {
+            position: relative;
+        }
+        
+        .info {
+            /*//tu eres quien se mueve*/
+            font-size: 15px;
+            position: absolute;
+            color: white;
+            top: 10%;
+            width: 40%;
+            height: 80%x;
+            border: none;
+            padding-left: 20px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="app.js">
+        //el script es quien ejecuta la logica de mi interfaz
+    </script>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)">
+        <footer class="pie">
+            <p style="color: white;" class="text-center">
+                Copyright | AdministraTuBiblioteca.com ° Todos los derechos reservados.
+                <br>Privacidad | Política de Cookies | Aviso Legal | Condiciones generales de contratación
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
+<!--
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#btn-guardar').click(function() {
+            var datos = $('#forma').serialize();
+
+            $.ajax({
+                type: "POST",
+                url: 'libros-add.php',
+                data: datos,
+                success: function(r) {
+                    if (r == 1) {
+                        alert('insertado con exito');
+                    } else {
+                        alert('fallo el servidor');
+                    }
+                }
+            });
+            return false;
+        });
+
+
+    });
+</script>
+-->
